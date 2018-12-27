@@ -33,12 +33,12 @@ module data_cruncher(
 		end
 	end
 	
-	// needs more than one clock cycle to finish
-	always @(posedge clk) begin	
+	always @(posedge clk) begin
 		if (!rst) begin
+			// needs more than one clock cycle to finish
 			timer <= 4;
 			doing_calculations <= 1;
-		
+			
 			wait (timer == 1) begin
 				addr <= counter;
 				w_data <= counter;
